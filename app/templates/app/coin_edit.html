@@ -1,5 +1,9 @@
 {% extends 'app/base.html' %}
 
+{% block title %}
+Coin
+{% endblock %}
+
 {% block content %}
     <h1>Coin</h1>
     <form method="POST">{% csrf_token %}
