@@ -15,4 +15,4 @@ class CoinForm(forms.ModelForm):
     # diameter = forms.IntegerField()
     class Meta:
        model = CoinObj
-       fields = ('title', 'type', 'theme', 'nominal', 'diameter', 'weight')
+       fields = ('title.title', 'type', 'theme', 'nominal', 'diameter', 'weight')
