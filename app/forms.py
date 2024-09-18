@@ -5,7 +5,7 @@ from .models import CoinObj
 class CoinForm(forms.ModelForm):
 
     title = forms.CharField(max_length=60)
-    description = forms.TextField()
+    description = forms.CharField(100)
     type = forms.CharField(max_length=30)
     proba = forms.PositiveIntegerField()
     technology = forms.CharField(max_length=50)
