@@ -8,14 +8,15 @@
 {% block content %}
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">{{ coin.title.title }}</h1>
-      <p class="col-md-8 fs-4">{{ coin.title.description }}</p>
-      <p class="col-md-8 fs-4">{{ coin.type.title }}</p>
-      <p class="col-md-8 fs-4">{{ coin.nominal }}</p>
-      <p class="col-md-8 fs-4">{{ coin.weight }}</p>
-      <p class="col-md-8 fs-4">{{ coin.diameter }}</p>
+      <h1 class="display-5 fw-bold">{{ coin.title.title }} {{ coin.theme.title }}</h1>
+      <h2 class="col-md-8 fs-4">{{ coin.title.description }}</h2>
+      <p class="col-md-8 fs-4">Тип монеты: {{ coin.type.title }} {{ coin.type.proba }}</p>
+      <p class="col-md-8 fs-4">Номинал: {{ coin.nominal }} сом</p>
+      <p class="col-md-8 fs-4">Вес: {{ coin.weight }} гр.</p>
+      <p class="col-md-8 fs-4">Диаметр монеты: {{ coin.diameter }} мм.</p>
+      <p class="col-md-8 fs-4">Особенности: {{ coin.type.technology }}</p>
       {% if user.is_authenticated %}
-      <button class="btn btn-primary btn-lg" type="button" ><a href="{% url 'coin_edit' pk=coin.pk %}">Edit</a></button>
+      <button class="btn btn-secondary btn-lg" type="button" ><a href="{% url 'coin_edit' pk=coin.pk %}">Edit</a></button>
       {% endif %}
     </div>
   </div>
