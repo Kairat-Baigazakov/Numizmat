@@ -16,7 +16,7 @@
       <p class="col-md-8 fs-4">Диаметр монеты: {{ coin.diameter }} мм.</p>
       <p class="col-md-8 fs-4">Особенности: {{ coin.type.technology }}</p>
       {% if user.is_authenticated %}
-      <button class="btn btn-secondary btn-lg" type="button" ><a href="{% url 'coin_edit' pk=coin.pk %}">Edit</a></button>
+      <a class="btn btn-warning" href="{% url 'coin_edit' pk=coin.pk %}" role="button">Edit</a>
       {% endif %}
     </div>
   </div>
