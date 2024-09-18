@@ -1,18 +1,26 @@
 from django import forms
-from .models import CoinObj
+from .models import CoinObj, Coin, Theme, Type
+
+
+class Type(forms.ModelForm):
+    class Meta:
+        model = Type
+        fields = ('title', 'proba', 'technology')
+
+
+class Theme(forms.ModelForm):
+    class Meta:
+        model = Theme
+        fields = ('title')
 
 
 class CoinForm(forms.ModelForm):
+    class Meta:
+        model = Coin
+        fields = ('title', 'description')
 
-    # title = forms.CharField(max_length=60)
-    # description = forms.CharField(max_length=100)
-    # type = forms.CharField(max_length=30)
-    # proba = forms.IntegerField()
-    # technology = forms.CharField(max_length=50)
-    # theme = forms.CharField(max_length=30)
-    # nominal = forms.IntegerField()
-    # weight = forms.IntegerField()
-    # diameter = forms.IntegerField()
+
+class CoinObjForm(forms.ModelForm):
     class Meta:
        model = CoinObj
-       fields = ('title.title', 'type', 'theme', 'nominal', 'diameter', 'weight')
+       fields = ('title', 'type', 'theme', 'nominal', 'diameter', 'weight')
