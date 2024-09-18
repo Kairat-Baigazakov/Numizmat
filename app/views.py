@@ -16,26 +16,26 @@ def coin_detail(request, pk):
 
 def coin_add(request):
     if request.method == "POST":
-        form = CoinForm(request.POST)
+        form = CoinObjForm(request.POST)
         if form.is_valid():
             coin = form.save(commit=False)
             coin.save()
             return redirect('coin_detail', pk=coin.pk)
     else:
-        form = CoinForm()
+        form = CoinObjForm()
     return render(request, 'app/coin_edit.html', {'form': form})
 
 
 def coin_edit(request, pk):
     coin = get_object_or_404(CoinObj, pk=pk)
     if request.method == "POST":
-        form = CoinForm(request.POST, instance=coin)
+        form = CoinObjForm(request.POST, instance=coin)
         if form.is_valid():
             coin = form.save(commit=False)
             coin.save()
             return redirect('coin_detail', pk=coin.pk)
     else:
-        form = CoinForm(instance=coin)
+        form = CoinObjForm(instance=coin)
     return render(request, 'app/coin_edit.html', {'form': form})
 
 
