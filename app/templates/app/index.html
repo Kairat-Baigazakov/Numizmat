@@ -8,7 +8,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<button class="btn btn-secondary btn-lg" type="button" ><a href="{% url 'coin_add' %}">Dobavit monetku</a></button>
+<a class="btn btn-primary" href="{% url 'coin_add' %}" role="button">Dobavit monetku</a>
 {% endif %}
 
 {% for coin in coins %}
