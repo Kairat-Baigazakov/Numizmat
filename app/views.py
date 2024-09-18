@@ -19,9 +19,6 @@ def coin_add(request):
         form = CoinForm(request.POST)
         if form.is_valid():
             coin = form.save(commit=False)
-            coin.nominal = 100
-            coin.weight = 30
-            coin.diameter = 10
             coin.save()
             return redirect('coin_detail', pk=coin.pk)
     else:
