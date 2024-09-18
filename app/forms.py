@@ -11,7 +11,7 @@ class Type(forms.ModelForm):
 class Theme(forms.ModelForm):
     class Meta:
         model = Theme
-        fields = ('title')
+        fields = ('title',)
 
 
 class CoinForm(forms.ModelForm):
