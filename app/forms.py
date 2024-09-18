@@ -6,4 +6,4 @@ class CoinForm(forms.ModelForm):
 
     class Meta:
         model = CoinObj
-        fields = ('title', 'type', 'theme')
+        fields = ('title.title', 'type.title', 'theme.title')
