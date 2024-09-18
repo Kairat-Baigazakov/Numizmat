@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+{{ coin.title.title }} {{ coin.type.title }}
+{% endblock %}
+
+
+{% block content %}
+Тут страница Монеты
+<br>
+
+{% if user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'coin_edit' pk=coin.pk %}">Edit</a>
+{% endif %}
+
+{% endblock %}

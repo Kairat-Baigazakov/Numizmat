@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'coin_add' %}">Dobavit monetku</a>
+{% endif %}
+
+{% for coin in coins %}
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">{{ coin.type }}</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title"><a href="{% url 'coin_detail' pk=coin.pk %}">{{ coin.title }}</a><small class="text-body-secondary fw-light"> /
+                    {{ coin.theme }}</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{ coin.title.description }}</li>
+                    <li>Номинал: {{ coin.nominal }}</li>
+                    <li>Вес: {{ coin.weight }}</li>
+                    <li>Диаметр: {{ coin.diameter }}</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary">Купить</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
