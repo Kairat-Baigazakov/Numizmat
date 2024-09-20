@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import CoinObj
 from .forms import CoinObjForm
+from django.contrib.auth import *
 
 
 # Тут мы создаем сами Views в виде функции/методов которые принимают request
@@ -37,6 +38,22 @@ def coin_edit(request, pk):
     else:
         form = CoinObjForm(instance=coin)
     return render(request, 'app/coin_edit.html', {'form': form})
+
+
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('index')
+        else:
+            return redirect('login_user')
+    else:
+        return render(request, 'app/login.html')
 
 
 def info(request):
