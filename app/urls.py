@@ -9,4 +9,5 @@ urlpatterns = [
     path('coin/<int:pk>/', views.coin_detail, name='coin_detail'),
     path('coin/add/', views.coin_add, name='coin_add'),
     path('coin/<int:pk>/edit/', views.coin_edit, name='coin_edit'),
+    path('loginuser/', views.login_user, name='login_user'),
 ]
