@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import CoinObj
 from .forms import CoinObjForm
-from django.contrib.auth import *
+from django.contrib import auth
 
 
 # Тут мы создаем сами Views в виде функции/методов которые принимают request
